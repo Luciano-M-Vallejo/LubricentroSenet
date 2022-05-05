@@ -32,6 +32,20 @@ class AceiteProduct {
     }
 }
 
+function creatProductOil() {
+    let marca = document.getElementById('marca').value
+    let spec = document.getElementById('spec').value
+    let price = document.getElementById('price').value
+    let stock = document.getElementById('stock').value
+    newOilProduct = new AceiteProduct(marca, spec, price, stock)
+    oilList.push(newOilProduct)
+    console.log(oilList)
+    document.getElementById('marca').value = ''
+    document.getElementById('spec').value = ''
+    document.getElementById('price').value = ''
+    document.getElementById('stock').value = ''
+}
+
 function start() {
     activeWhile = true
     while (activeWhile) {
