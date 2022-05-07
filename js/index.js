@@ -46,6 +46,26 @@ function creatProductOil() {
     document.getElementById('stock').value = ''
 }
 
+function searchProductOil() {
+    let searchMarca = document.getElementById('marcaSearch').value
+    if (searchMarca != '') {
+        console.log(oilList.filter((element) => element.marca.includes(searchMarca)))
+    } else {
+        console.log('Error al buscar este aceite')
+    }
+}
+
+function deleteProductOil() {
+    let deleteMarca = document.getElementById('marcaDelete').value
+    if (deleteMarca != '') {
+        oilList.splice(oilList.findIndex((element) => element.marca.includes(deleteMarca)), 1)
+        console.log('Se elimino el Aceite: ' + deleteMarca)
+        console.log(oilList)
+    } else {
+        console.log('Error al buscar el aceite para borrar')
+    }
+}
+
 function start() {
     activeWhile = true
     while (activeWhile) {

@@ -5,32 +5,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Lubri Senet</title>
 </head>
 
 <body>
     <h1>Lubricentro Senet</h1>
     <div>
-        <div>
-            <h3>Cargar nuevo componente</h3>
-            <label for="newComponent">Marca de Aceite</label>
-            <input type="text" id="marca" value="" placeholder="Ingrese Marca del Aceite">
-            <br>
-            <label for="newComponent">Especificacion</label>
-            <input type="text" id="spec" placeholder="Ingrese que de especificacion posee">
-            <br>
-            <label for="newComponent">Precio</label>
-            <input type="number" id="price" placeholder="Ingrese el precio">
-            <br>
-            <label for="newComponent">Stock</label>
-            <input type="number" id="stock" placeholder="Declare el stock">
-            <br>
-            <button onclick='creatProductOil()'>Crear componente</button>
+        <div style="width: 30rem; padding: 10px;">
+            <form id="formNewComponent">
+                <h3>Cargar nuevo componente</h3>
+                <div class="mb-3">
+                    <label for="newComponent" class="form-label">Marca de Aceite</label>
+                    <input type="text" class="form-control" id="marca" aria-describedby="marcaHelp"
+                        placeholder="Ingrese Marca del Aceite">
+                    <div id="marcaHelp" class="form-text">Aqui debe colocar la marca del producto</div>
+                </div>
+                <div class="mb-3">
+                    <label for="newComponent" class="form-label">Especificacion</label>
+                    <input type="text" class="form-control" id="spec" aria-describedby="specHelp"
+                        placeholder="Ingrese que de especificacion posee">
+                    <div id="specHelp" class="form-text">Aqui debe colocar la especificacion producto</div>
+                </div>
+                <div class="mb-3">
+                    <label for="newComponent" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="price" aria-describedby="priceHelp"
+                        placeholder="Ingrese el precio">
+                    <div id="marcaHelp" class="form-text">Aqui debe colocar la marca del producto</div>
+                </div>
+                <div class="mb-3">
+                    <label for="newComponent" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="stock" aria-describedby="stockHelp"
+                        placeholder="Declare el stock">
+                    <div id="stockHelp" class="form-text">Aqui debe colocar la marca del producto</div>
+                </div>
+            </form>
+            <button class="btn btn-primary" onclick='creatProductOil()'>Crear Producto</button>
+        </div>
+        <div style="width: 30rem; padding: 10px;">
+            <form id="formSearchComponent">
+                <h3>Buscar Producto</h3>
+                <div class="mb-3">
+                    <label for="searchComponent" class="form-label">Buscar por Marca de Aceite</label>
+                    <input type="text" class="form-control" id="marcaSearch" aria-describedby="marcaSearchHelp"
+                        placeholder="Ingrese Marca del Aceite">
+                    <div id="marcaSearchHelp" class="form-text">Aqui debe colocar la marca del producto a buscar</div>
+                </div>
+            </form>
+            <button class="btn btn-primary" onclick='searchProductOil()'>Buscar Producto</button>
+            <!-- <div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Default radio
+                    </label>
+                </div>
+            </div> -->
+        </div>
+        <div style="width: 30rem; padding: 10px;">
+            <form id="formSearchComponent">
+                <h3>Eliminar Producto</h3>
+                <div class="mb-3">
+                    <label for="searchComponent" class="form-label">Eliminar por Marca de Aceite</label>
+                    <input type="text" class="form-control" id="marcaDelete" aria-describedby="marcaDeleteHelp"
+                        placeholder="Ingrese Marca del Aceite">
+                    <div id="marcaDeleteHelp" class="form-text">Aqui debe colocar la marca del producto a eliminar</div>
+                </div>
+            </form>
+            <button class="btn btn-danger" onclick='deleteProductOil()'>Eliminar Producto</button>
         </div>
     </div>
 
 
-    <button onclick='start()'>Comenzar</button>
+    <!-- <button onclick='start()'>Comenzar</button> -->
     <script src="js/index.js"></script>
 </body>
 
