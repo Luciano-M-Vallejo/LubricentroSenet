@@ -3,18 +3,21 @@ let activeWhile = false
 let creatOilProduct = false
 let oilList = [
     {
+        id: 1,
         marca: 'YPF Elaion',
         spec: '15w40',
         precio: 1000,
         stock: 2
     },
     {
+        id: 2,
         marca: 'Total Quartz 7000',
         spec: '10w40',
         precio: 500,
         stock: 5
     },
     {
+        id: 3,
         marca: 'GULF Max',
         spec: '20w50',
         precio: 10000,
@@ -32,13 +35,42 @@ class AceiteProduct {
     }
 }
 
+let divModal = document.getElementById('modalSuccess')
+const ModalMsg = (title, msg) => { 
+    divModal.innerHTML = `
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                     ${msg.msg}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+    let modal = new bootstrap.Modal(divModal.querySelector('.modal'))
+    modal.show()
+}
+
 function creatProductOil() {
     let marca = document.getElementById('marca').value
     let spec = document.getElementById('spec').value
     let price = document.getElementById('price').value
     let stock = document.getElementById('stock').value
     newOilProduct = new AceiteProduct(marca, spec, price, stock)
-    oilList.push(newOilProduct)
+    try {
+        oilList.push(newOilProduct)
+        ModalMsg('Producto Creado', {msg: 'El producto se agregado exitosamente'})
+    } catch (error) {
+        
+    }
     console.log(oilList)
     document.getElementById('marca').value = ''
     document.getElementById('spec').value = ''
@@ -50,6 +82,31 @@ function searchProductOil() {
     let searchMarca = document.getElementById('marcaSearch').value
     if (searchMarca != '') {
         console.log(oilList.filter((element) => element.marca.includes(searchMarca)))
+        let filtered = oilList.filter((element) => element.marca.includes(searchMarca))
+        let divProductos = document.getElementById('searchedProduct')
+        filtered.forEach((product, index) => {
+            // marca, precio, spec] = product
+            divProductos.innerHTML += `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Especificacion</th>
+                            <th scope="col">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" id="producto${index}">${index}</th>
+                            <td>${product.marca}</td>
+                            <td>${product.spec}</td>
+                            <td>$${product.precio}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            `
+        })
     } else {
         console.log('Error al buscar este aceite')
     }
@@ -57,13 +114,20 @@ function searchProductOil() {
 
 function deleteProductOil() {
     let deleteMarca = document.getElementById('marcaDelete').value
-    if (deleteMarca != '') {
-        oilList.splice(oilList.findIndex((element) => element.marca.includes(deleteMarca)), 1)
-        console.log('Se elimino el Aceite: ' + deleteMarca)
+    deleteMarca != '' ? (
+        oilList.splice(oilList.findIndex((element) => element.marca.includes(deleteMarca)), 1),
+        ModalMsg('Producto Eliminado', {msg: 'Se elimino el Aceite: ' + deleteMarca}),
         console.log(oilList)
-    } else {
-        console.log('Error al buscar el aceite para borrar')
-    }
+    ) : (
+            console.log('Error al buscar el aceite para borrar')
+    )
+    // if (deleteMarca != '') {
+    //     oilList.splice(oilList.findIndex((element) => element.marca.includes(deleteMarca)), 1)
+    //     ModalMsg('Producto Eliminado', {msg: 'Se elimino el Aceite: ' + deleteMarca})
+    //     console.log(oilList)
+    // } else {
+    //     console.log('Error al buscar el aceite para borrar')
+    // }
 }
 
 function start() {
