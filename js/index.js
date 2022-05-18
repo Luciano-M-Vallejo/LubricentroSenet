@@ -41,15 +41,12 @@ const ModalMsg = (title, msg) => {
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-success" style="--bs-bg-opacity: .5;">
                         <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body bg-success" style="--bs-bg-opacity: .5;">
                      ${msg.msg}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -59,17 +56,48 @@ const ModalMsg = (title, msg) => {
     modal.show()
 }
 
+let divAlert = document.getElementById('alerts')
+const ModalAlert = (title, msg) => { 
+    divAlert.innerHTML = `
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header alert-warning">
+                        <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body alert-warning">
+                     <div class="alert alert-warning d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                        <div>
+                            ${msg.msg}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+    let modal = new bootstrap.Modal(divAlert.querySelector('.modal'))
+    modal.show()
+}
+
 function creatProductOil() {
-    let marca = document.getElementById('marca').value
-    let spec = document.getElementById('spec').value
-    let price = document.getElementById('price').value
-    let stock = document.getElementById('stock').value
-    newOilProduct = new AceiteProduct(marca, spec, price, stock)
-    try {
-        oilList.push(newOilProduct)
-        ModalMsg('Producto Creado', {msg: 'El producto se agregado exitosamente'})
-    } catch (error) {
-        
+    if (document.getElementById('marca').value != '' && document.getElementById('spec').value != '' && document.getElementById('price').value != '' && document.getElementById('stock').value != '') {
+        let marca = document.getElementById('marca').value
+        let spec = document.getElementById('spec').value
+        let price = document.getElementById('price').value
+        let stock = document.getElementById('stock').value
+        newOilProduct = new AceiteProduct(marca, spec, price, stock)
+        try {
+            console.log(newOilProduct ?? 'Error')
+            oilList.push(newOilProduct)
+            ModalMsg('Producto Creado', {msg: 'El producto se agregado exitosamente'})
+        } catch (error) {
+            
+        }
+    } else {
+        ModalAlert('Error al Crear Producto', {msg: 'Para crear un producto debe completar todos los campos del mismo'})
+        console.log('Para crear un producto debe completar todos los campos del mismo')
     }
     console.log(oilList)
     document.getElementById('marca').value = ''
