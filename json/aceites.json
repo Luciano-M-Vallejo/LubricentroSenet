@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "marca": "SHELL HELIX ULTRA X",
+        "spec": "5W-30",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 2,
+        "marca": "SHELL HELIX ULTRA",
+        "spec": "15W-40",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 3,
+        "marca": "SHELL HELIX ULTRA PROFESSIONAL AG",
+        "spec": "5W-30",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 4,
+        "marca": "SHELL HELIX ULTRA PROFESSIONAL AV-L",
+        "spec": "5W-30",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 5,
+        "marca": "SHELL HELIX HX8 PROFESSIONAL AG",
+        "spec": "5W-30",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 6,
+        "marca": "CASTROL EDGE",
+        "spec": "0W-30",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 7,
+        "marca": "CASTROL EDGE SUPERCAR",
+        "spec": "10W-60",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 8,
+        "marca": "CASTROL MAGNATEC",
+        "spec": "10W-30",
+        "tipo": "Semi Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 9,
+        "marca": "CASTROL GTX",
+        "spec": "20W-50",
+        "tipo": "Mineral",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 10,
+        "marca": "CASTROL GTX",
+        "spec": "15W-40",
+        "tipo": "Mineral",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 11,
+        "marca": "YPF ELAION AURO HYBRID D1",
+        "spec": "0W-20",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 12,
+        "marca": "YPF ELAION AURO D2",
+        "spec": "5W-30",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 13,
+        "marca": "YPF ELAION AURO FR",
+        "spec": "5W-40",
+        "tipo": "Sintetico",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 14,
+        "marca": "YPF ELAION F10",
+        "spec": "15W-40",
+        "tipo": "Mineral",
+        "precio": 1000,
+        "stock": 2
+    },
+    {
+        "id": 15,
+        "marca": "YPF ELAION F30",
+        "spec": "10W-40",
+        "tipo": "Semi Sintetico",
+        "precio": 1000,
+        "stock": 2
+    }
+]
