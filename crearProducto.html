@@ -11,34 +11,43 @@
 
 <body>
     <div style="width: 30rem; padding: 10px;">
-        <form id="formNewComponent">
+        <form id="formNewComponent" class="row g-3 needs-validation" novalidate>
             <h3>Cargar nuevo componente</h3>
             <div class="mb-3">
-                <label for="newComponent" class="form-label">Marca de Aceite</label>
-                <input type="text" class="form-control" id="marca" aria-describedby="marcaHelp"
-                    placeholder="Ingrese Marca del Aceite">
-                <div id="marcaHelp" class="form-text">Aqui debe colocar la marca del producto</div>
+                <label for="marca" class="form-label">Marca de Aceite</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="marca" aria-describedby="marcaHelp"
+                        placeholder="Ingrese Marca del Aceite" required>
+                    <div id="marcaHelp" class="invalid-feedback">
+                        Aqui debe colocar la marca del producto</div>
+                </div>
             </div>
             <div class="mb-3">
-                <label for="newComponent" class="form-label">Especificacion</label>
-                <input type="text" class="form-control" id="spec" aria-describedby="specHelp"
-                    placeholder="Ingrese que de especificacion posee">
-                <div id="specHelp" class="form-text">Aqui debe colocar la especificacion producto</div>
+                <label for="spec" class="form-label">Especificacion</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="spec" aria-describedby="specHelp"
+                        placeholder="Ingrese que de especificacion posee" required>
+                    <div id="specHelp" class="invalid-feedback">Aqui debe colocar la especificacion producto</div>
+                </div>
             </div>
             <div class="mb-3">
-                <label for="newComponent" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="price" aria-describedby="priceHelp"
-                    placeholder="Ingrese el precio">
-                <div id="marcaHelp" class="form-text">Aqui debe colocar la marca del producto</div>
+                <label for="price" class="form-label">Precio</label>
+                <div class="input-group has-validation">
+                    <input type="number" class="form-control" id="price" aria-describedby="priceHelp"
+                        placeholder="Ingrese el precio" required>
+                    <div id="marcaHelp" class="invalid-feedback">Aqui debe colocar la marca del producto</div>
+                </div>
             </div>
             <div class="mb-3">
-                <label for="newComponent" class="form-label">Stock</label>
-                <input type="number" class="form-control" id="stock" aria-describedby="stockHelp"
-                    placeholder="Declare el stock">
-                <div id="stockHelp" class="form-text">Aqui debe colocar la marca del producto</div>
+                <label for="stock" class="form-label">Stock</label>
+                <div class="input-group has-validation">
+                    <input type="number" class="form-control" id="stock" aria-describedby="stockHelp"
+                        placeholder="Declare el stock" required>
+                    <div id="stockHelp" class="invalid-feedback">Aqui debe colocar la marca del producto</div>
+                </div>
             </div>
+            <button class="btn btn-primary" onclick='creatProductOil()' id="creat" type="submit">Crear Producto</button>
         </form>
-        <button class="btn btn-primary" onclick='creatProductOil()' id="creat">Crear Producto</button>
         <div id="modalSuccess"></div>
         <div id="alerts"></div>
     </div>

@@ -93,6 +93,52 @@ fetch('json/aceites.json')
     })
 
 
+const forms = document.querySelectorAll('.needs-validation')
+Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+      form.classList.add('was-validated')
+    }, false)
+})
+
+function allProducts() {
+    fetch('json/aceites.json')
+    .then(response => response.json())
+    .then(datos => {
+        let productos = [...datos]
+        let allProductos = document.getElementById('products')
+        productos.map((product) => {
+            console.log(product)
+            allProductos.innerHTML = `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Especificacion</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" id="producto${product.id}">${product.id}</th>
+                            <td>${product.marca}</td>
+                            <td>${product.spec}</td>
+                            <td>${product.tipo}</td>
+                            <td>$${product.precio}</td>
+                        </tr>
+                    </tbody>
+                </table>
+             `
+        })
+        
+        
+    })
+}
 function creatProductOil() {
     if (document.getElementById('marca').value != '' && document.getElementById('spec').value != '' && document.getElementById('price').value != '' && document.getElementById('stock').value != '') {
         let marca = document.getElementById('marca').value
